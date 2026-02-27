@@ -1,0 +1,236 @@
+@use "../abstract/" as *;
+@use "../base/" as *;
+@use "../layout/" as *;
+
+.contacts {
+  position: relative;
+  margin-top: -650px;
+  z-index: 2;
+  margin-bottom: 4rem;
+
+  h2 {
+    text-align: center;
+    font-family: $font-secondary;
+    padding: 2rem 0;
+  }
+
+  h1 {
+    font-family: $font-secondary;
+  }
+
+  img {
+    max-width: unset;
+    @include imgFit(90rem, 55rem);
+  }
+
+  // Wrapper for both columns
+  &__wrapper {
+    margin-top: 4rem;
+    @include gridCustom(4fr 2fr, 4rem);
+    text-align: left;
+  }
+
+  // Left Column
+  &__left-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  // Right Column
+  &__right {
+    height: 470px;
+    margin-left: 2rem;
+    padding: 2rem;
+    background-color: $clr--primary;
+    display: flex;
+    align-items: center;
+    margin-top: 8rem;
+  }
+
+  &__info {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  &__info h3 {
+    font-family: $font-secondary;
+    color: $clr--light;
+    margin-bottom: 2rem;
+  }
+
+  &__item {
+    margin-bottom: 2rem;
+  }
+
+  &__label {
+    display: block;
+    color: $clr--light;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  &__row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: $clr--light;
+    line-height: 1.5;
+  }
+
+  &__row i {
+    margin-top: 4px; // aligns icon nicely with text
+  }
+
+  &__row--address {
+    max-width: 320px;
+  }
+}
+
+.card {
+  margin: 0;
+  width: 100%;
+  margin-top: 4rem;
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+
+    label {
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 250px;
+    }
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: $clr--primary;
+    color: $clr--light;
+    cursor: pointer;
+  }
+}
+
+@include mediaQuery(520px) {
+  .contacts {
+    margin-top: -350px;
+    margin-bottom: 2rem;
+    padding: 1rem;
+
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      padding: 1.5rem 0;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      text-align: center;
+    }
+
+    img {
+      @include imgFit(100%, auto);
+      margin-bottom: 2rem;
+    }
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    &__left-wrapper {
+      align-items: center;
+    }
+
+    &__right {
+      width: 100%;
+      height: auto;
+      margin-left: 0;
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+
+    &__info {
+      max-width: 100%;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    &__info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    &__item {
+      margin-bottom: 1.5rem;
+    }
+
+    &__label {
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+
+    &__row {
+      flex-direction: row;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      line-height: 1.4;
+
+      i {
+        margin-top: 0;
+      }
+    }
+
+    &__row--address {
+      max-width: 100%;
+    }
+  }
+
+  .card {
+    margin-top: 2rem;
+    width: 100%;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+
+      input,
+      textarea {
+        width: 100%;
+        font-size: 0.95rem;
+        padding: 0.5rem;
+      }
+
+      textarea {
+        min-height: 200px;
+      }
+    }
+
+    .btn {
+      width: 100%;
+      padding: 0.6rem;
+      font-size: 1rem;
+    }
+  }
+}
